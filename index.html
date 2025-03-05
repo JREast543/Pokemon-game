@@ -41,7 +41,7 @@
             pointer-events: none;">
     </div>
 
-    <!-- Reprsents health bar of Draggle (enemy)-->
+    <!-- Represents health bar of Draggle (enemy)-->
     <div 
         style="
         background-color: white; 
@@ -56,7 +56,7 @@
 
         <div style="position: relative;">
             <div style="height: 5px; background-color: #ddd; margin-top: 10px;"></div>
-            <div 
+            <div id="enemyHealthBar" 
                 style="
                 height: 5px; 
                 background-color: green; 
@@ -68,8 +68,8 @@
         </div>
     </div>
 
-    <!-- Reprsents health bar of Emby (player)-->
-    <div 
+    <!-- Represents health bar of Emby (player)-->
+    <div id="playerHealthBar"
     style="
     background-color: white; 
     width: 250px;  
@@ -111,7 +111,8 @@
             width: 65%;
             display: grid;
             grid-template-columns: repeat(2, 1fr);">
-            <button>Attack1</button>
+
+            <button>Tackle</button>
             <button>Attack2</button>
             <button>Attack3</button>
             <button>Attack4</button>

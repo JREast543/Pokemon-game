@@ -1,3 +1,5 @@
+//const { types } = require("pg");
+
 //tartgeting the canvas
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
@@ -339,7 +341,8 @@ const draggle = new Sprite({
         max: 4,
         hold: 60
     },
-    animate: true
+    animate: true,
+    isEnemy: true
 })
 
 const embyImg = new Image()
@@ -365,6 +368,19 @@ function animateBattle(){
 }
 
 animateBattle()
+
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+        emby.attack({ 
+            attack: {
+                name: 'Tackle',
+                damage: 10,
+                type: 'Normal',
+            },
+            recipient: draggle
+        })
+    })
+})
 
 let lastkey = ''
 window.addEventListener('keydown', (e) => {
