@@ -8,40 +8,18 @@ const battleBackground = new Sprite({
     image: battleBackgroundImg
 })
 
-const draggleImg = new Image()
-draggleImg.src = './Images/draggleSprite.png'
-const draggle = new Sprite({
-    position: {
-        x: 800,
-        y: 100
-    },
-    image: draggleImg,
-    frames: {
-        max: 4,
-        hold: 60
-    },
-    animate: true,
-    isEnemy: true,
-    name: 'Draggle'
-})
 
-const embyImg = new Image()
-embyImg.src = './Images/embySprite.png'
-const emby = new Sprite({
-    position: {
-        x: 280,
-        y: 325
-    },
-    image: embyImg,
-    frames: {
-        max: 4,
-        hold: 60
-    },
-    animate: true,
-    name: 'Emby'
-})
+const draggle = new Monster(monsters.Draggle)
+const emby = new Monster(monsters.Emby)
 
 const renderedSprites = [draggle, emby]
+
+emby.attacks.forEach(attack => {
+    const button = document.createElement('button')
+    button.innerHTML = attack.name
+    document.querySelector('#attacksBox').append(button)
+})
+
 function animateBattle(){
     window.requestAnimationFrame(animateBattle)
     battleBackground.draw()
