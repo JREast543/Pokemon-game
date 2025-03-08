@@ -38,10 +38,17 @@
             bottom: 0; 
             left: 0; 
             opacity: 0;
-            pointer-events: none;">
+            pointer-events: none;
+            z-index: 10;">
     </div>
 
+    
+
+    <canvas></canvas>
+
+    
     <!-- Represents health bar of Draggle (enemy)-->
+    <div id="userInterface">
     <div 
         style="
         background-color: white; 
@@ -68,6 +75,7 @@
         </div>
     </div>
 
+    
     <!-- Represents health bar of Emby (player)-->
     <div 
     style="
@@ -94,8 +102,6 @@
         </div>
     </div>
 </div>
-
-    <canvas></canvas>
 
     <div style="
         background-color: white;
@@ -138,7 +144,7 @@
             <h1 id="attackType" style="font-size: 16px;">Attack Type</h1>
         </div>
     </div>
-
+</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
     integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
