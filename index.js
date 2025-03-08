@@ -1,5 +1,3 @@
-//const { types } = require("pg");
-
 //tartgeting the canvas
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
@@ -54,8 +52,6 @@ BattleZonesMap.forEach((row, i) => {
     })
 })
 
-console.log(BattleZones);
-
 const image = new Image()
 image.src = './Images/Pokemon-town.png'
 
@@ -91,7 +87,6 @@ const player = new Sprite({
         down: playerDownImage
     }
 })
-console.log(player)
 
 const background = new Sprite({ 
     position: {
@@ -175,10 +170,12 @@ function animate() {
                 overlappingArea > (player.width * player.height) / 2
                 && Math.random() < 0.01
             ) {
-            console.log('activate battle')
             //deactivate current animation loop
             window.cancelAnimationFrame(animationId)
 
+            audio.Map.stop()
+            audio.initBattle.play()
+            audio.battle.play()
 
             battle.initiated = true
             gsap.to('#overlappingDiv', {
@@ -359,5 +356,13 @@ window.addEventListener('keyup', (e) => {
         case 'd':
             keys.d.pressed = false
             break
+    }
+})
+
+let clicked = false
+addEventListener('click', () => {
+    if (!clicked) {
+        audio.Map.play()
+        clicked = true
     }
 })
